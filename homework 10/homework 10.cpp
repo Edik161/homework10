@@ -18,12 +18,16 @@ void read(double* value)
         }
     } while (0 > *value );
 }
+
+// FIX: подключи gsl и передавай в функцию gsl::not_null
 double* convert(double* rubles) 
 {
     const double Dublon = 3.14;
     *rubles = *rubles * Dublon;
     return rubles;
 }
+
+// FIX: подключи gsl и передавай в функцию gsl::not_null
 void show(double* dubblons) 
 {
     cout << "Результат конвертации: " << *dubblons << " дублонов" << "\n";
@@ -37,15 +41,20 @@ void read(int* arr, int size)
         arr[i] = rand() % 100; 
     }
 }
+
+// FIX: подключи gsl и передавай в функцию gsl::not_null
 void zamena(int* arr, int size) 
 {
     for (int i = 0; i < size/2; i++) 
     {
+        // FIX: замену сделай через std::swap
         int temp = arr[i];
         arr[i] = arr[size - 1 - i];
         arr[size - 1 - i] = temp;
     }
 }
+
+// FIX: подключи gsl и передавай в функцию gsl::not_null
 void show(int* arr, int size) 
 {
     for (int i = 0; i < size; i++) 
@@ -55,14 +64,17 @@ void show(int* arr, int size)
     cout <<"\n";
 }
 //task4
+
+// FIX: подключи gsl и передавай в функцию gsl::not_null
 void reads(int* arr, int size) 
 {
     cout << "Введите " << size << " элементов массива: ";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) { // скобку на новую строку
         cin >> arr[i];
     }
 }
 
+// FIX: подключи gsl и передавай в функцию gsl::not_null
 int* add(int* arr, int& size, int val) 
 {
     int* newArr = new int[size + 1];
@@ -79,6 +91,8 @@ int* add(int* arr, int& size, int val)
     
     return newArr;
 }
+
+// FIX: подключи gsl и передавай в функцию gsl::not_null
 void shows(int* arr, int size) 
 {
     cout << "Массив: ";
@@ -104,7 +118,7 @@ int main()
     show(value);    
     
     delete value;
-    value = nullptr;*/
+    value = nullptr;*/ // не обязательно это делать после delete
     
     /*task2
         В одномерном динамическом массиве посчитать сумму кратных 6
